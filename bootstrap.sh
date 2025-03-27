@@ -27,6 +27,13 @@ if [ ! -d "dotbot" ]; then
     git submodule update --init --recursive
 fi
 
+# Copy install file from dotbot if it doesn't exist
+if [ ! -f "install" ]; then
+    print_message "Copying install file from dotbot..." "$YELLOW"
+    cp dotbot/tools/git-submodule/install .
+    chmod +x install
+fi
+
 # Run dotbot
 print_message "Running dotbot..." "$YELLOW"
 ./dotbot/dotbot -d . -c config/dotbot/install.conf.yaml
