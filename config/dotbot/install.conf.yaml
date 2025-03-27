@@ -1,0 +1,55 @@
+# Main dotbot configuration file
+# This file orchestrates the entire installation process
+
+- clean: ['~/.config']
+
+- link:
+    # Shell configurations
+    ~/.bashrc: .config/bash/bashrc
+    #~/.bash_profile: .config/bash/bash_profile
+    #~/.profile: .config/bash/profile
+    
+    # Git configuration
+    #~/.gitconfig: .config/git/gitconfig
+    #~/.gitignore: .config/git/gitignore
+    
+    # Editor configurations
+    #~/.config/nvim: .config/nvim
+    #~/.vimrc: .config/nvim/init.vim
+    
+    # Terminal configurations
+    #~/.config/tmux: .config/tmux
+    #~/.tmux.conf: .config/tmux/tmux.conf
+    
+    # Other configurations
+    #~/.config/alacritty: .config/alacritty
+    #~/.config/kitty: .config/kitty
+
+- shell:
+    # Initialize git submodules
+    - [git submodule update --init --recursive, Initializing submodules]
+    
+    # Run custom installation scripts
+    - [bash install/install.sh, Running custom installation]
+    
+    # Set up shell
+    #- [bash install/shell.sh, Setting up shell]
+    
+    # Install packages
+    #- [bash install/packages.sh, Installing packages]
+    
+    # Set up development tools
+    #- [bash install/tools.sh, Setting up development tools]
+    
+    # Configure desktop environment
+    #- [bash install/desktop.sh, Configuring desktop environment]
+
+- defaults:
+    link:
+      rel: true
+      force: true
+      create: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true 

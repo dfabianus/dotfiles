@@ -1,0 +1,38 @@
+# Package specifications
+# This file defines which packages to install
+
+packages:
+  system:
+    - build-essential
+    - cmake
+    - git
+    - curl
+    - wget
+    - stow
+    
+  development:
+    - neovim
+    - tmux
+    - ripgrep
+    - fd-find
+    - git-extras
+    
+  terminal:
+    - alacritty
+    - kitty
+    - zsh
+    - htop
+    - tree
+    
+  tools:
+    - docker
+    - docker-compose
+    - kubectl
+    - helm
+    
+  optional:
+    - obsidian
+    - firefox
+    - chromium
+    - vlc
+    - spotify-client 
