@@ -28,6 +28,11 @@ if [ ! -d "dotbot" ]; then
 fi
 
 # Copy install file from dotbot if it doesn't exist
+if [ -d "install" ]; then
+    print_message "Warning: 'install' directory exists. Please rename or remove it to proceed." "$RED"
+    exit 1
+fi
+
 if [ ! -f "install" ]; then
     print_message "Copying install file from dotbot..." "$YELLOW"
     cp dotbot/tools/git-submodule/install .
