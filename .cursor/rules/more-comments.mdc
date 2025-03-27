@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When generating code please provide a bit more comments than just the usual one-liner for each code section or function or class.
+
+3 to max. 10 lines of comment should be sufficient.

@@ -5,7 +5,7 @@
 
 - link:
     # Shell configurations
-    ~/.bashrc: .config/bash/bashrc
+    ~/.bashrc: dotfiles/.bashrc
     #~/.bash_profile: .config/bash/bash_profile
     #~/.profile: .config/bash/profile
     
@@ -24,6 +24,9 @@
     # Other configurations
     #~/.config/alacritty: .config/alacritty
     #~/.config/kitty: .config/kitty
+    
+    # Cursor configurations
+    ~/.cursor/mcp.json: dotfiles/.cursor/mcp.json
 
 - shell:
     # Initialize git submodules
