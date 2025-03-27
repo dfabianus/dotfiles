@@ -1,7 +1,9 @@
 # Main dotbot configuration file
 # This file orchestrates the entire installation process
 
-- clean: ['~/.config']
+- clean:
+    - "~/.config"
+    - "~/.bashrc"
 
 - link:
     # Shell configurations
