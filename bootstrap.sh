@@ -23,7 +23,6 @@ fi
 # Initialize dotbot if not already initialized
 if [ ! -d "dotbot" ]; then
     print_message "Initializing dotbot..." "$YELLOW"
-    git submodule add https://github.com/anishathalye/dotbot
     git submodule update --init --recursive
 fi
 
