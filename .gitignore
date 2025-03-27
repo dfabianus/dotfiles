@@ -1,0 +1,63 @@
+# Dotbot
+dotbot/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+*.lnk
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Local configuration files
+*.local
+.env
+.env.local
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+
+# Editor directories and files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System Files
+.directory
+.Trash-*
+.nfs*
+.fuse_hidden*
+.dmrc
+.ecryptfs 

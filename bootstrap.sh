@@ -41,6 +41,6 @@ fi
 
 # Run dotbot
 print_message "Running dotbot..." "$YELLOW"
-./dotbot/dotbot -d . -c config/dotbot/install.conf.yaml
+./dotbot/bin/dotbot -d . -c config/dotbot/install.conf.yaml
 
 print_message "Bootstrap completed successfully!" "$GREEN" 
