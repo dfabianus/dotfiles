@@ -125,14 +125,14 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Assign applications to workspaces
-assign [class="Firefox"] → $ws1
-assign [class="Ghostty"] → $ws2
-assign [class="Cursor"] → $ws3
+assign [class="[fF]irefox"] → $ws1
+assign [class="[gG]hostty"] → $ws2
+assign [class="[cC]ursor"] → $ws3
 
-# Launch applications at startup
+# Launch applications at startup with delays
 exec --no-startup-id firefox
-exec --no-startup-id ghostty
-exec --no-startup-id cursor
+exec --no-startup-id sleep 1 && ghostty
+exec --no-startup-id sleep 2 && /home/dona/Downloads/Cursor-0.47.9-x86_64.AppImage --no-sandbox
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
