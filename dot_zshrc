@@ -3,7 +3,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=nvim
+export EDITOR=cursor
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.cargo/bin
@@ -13,6 +13,21 @@ alias task=go-task
 alias v=nvim
 alias k=kubectl
 alias fly=flyctl
+
+# git
+alias gst="git status"
+alias gcm="git commit -m"
+alias gca="git commit --amend --no-edit"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
+alias gpl="git pull"
+
+# small function to unify git add, commit, push
+function gacp() {
+    git add .
+    git commit -m "$1"
+    git push
+}
 
 # bun completions
 [ -s "/home/ldonley/.bun/_bun" ] && source "/home/ldonley/.bun/_bun"
