@@ -51,19 +51,21 @@
           - wl-clipboard
         state: present
 
-    - name: Add rtx config manager
-      ansible.builtin.yum_repository:
-        name: rtx
-        description: RTX Repo
-        baseurl: https://rtx.pub/rpm
-        gpgkey: https://rtx.pub/gpg-key.pub
-        gpgcheck: true
-        enabled: true
+    - name: Add RTX GPG key
+      apt_key:
+        url: https://rtx.pub/gpg-key.pub
+        state: present
+
+    - name: Add RTX repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://rtx.pub/deb stable main"
+        state: present
 
     - name: Install RTX
-      ansible.builtin.dnf:
+      apt:
         name: rtx
         state: present
+        update_cache: yes
 
     - name: Change shell to zsh
       ansible.builtin.user:
