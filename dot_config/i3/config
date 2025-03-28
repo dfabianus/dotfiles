@@ -116,7 +116,7 @@ bindsym $mod+a focus parent
 set $ws1 "1: Browser"
 set $ws2 "2: Terminal"
 set $ws3 "3: Editor"
-set $ws4 "4"
+set $ws4 "4: Obsidian"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -128,11 +128,14 @@ set $ws10 "10"
 assign [class="[fF]irefox"] → $ws1
 assign [class="[gG]hostty"] → $ws2
 assign [class="[cC]ursor"] → $ws3
+assign [class="[oO]bsidian"] → $ws4
 
 # Launch applications at startup with delays
 exec --no-startup-id firefox
 exec --no-startup-id sleep 1 && ghostty
 exec --no-startup-id sleep 2 && /home/dona/Downloads/Cursor-0.47.9-x86_64.AppImage --no-sandbox
+exec --no-startup-id sleep 3 && obsidian
+
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
