@@ -51,24 +51,19 @@
           - wl-clipboard
         state: present
 
-    - name: Download RTX install script
-      ansible.builtin.get_url:
-        url: https://rtx.pub/install.sh
-        dest: /tmp/rtx_install.sh
-        mode: '0755'
-      become: true
+    - name: Add rtx config manager
+      ansible.builtin.yum_repository:
+        name: rtx
+        description: RTX Repo
+        baseurl: https://rtx.pub/rpm
+        gpgkey: https://rtx.pub/gpg-key.pub
+        gpgcheck: true
+        enabled: true
 
     - name: Install RTX
-      ansible.builtin.shell: /tmp/rtx_install.sh
-      args:
-        creates: /usr/local/bin/rtx
-      become: true
-
-    - name: Clean up RTX install script
-      ansible.builtin.file:
-        path: /tmp/rtx_install.sh
-        state: absent
-      become: true
+      ansible.builtin.dnf:
+        name: rtx
+        state: present
 
     - name: Change shell to zsh
       ansible.builtin.user:
