@@ -13,9 +13,10 @@
 
 - link:
     # Shell configurations
-    ~/.bashrc: dotfiles/.bashrc
-    #~/.bash_profile: .config/bash/bash_profile
-    #~/.profile: .config/bash/profile
+    ~/.zshrc: dotfiles/.zshrc
+    ~/.zshenv: dotfiles/.zshenv
+    ~/.config/starship.toml: dotfiles/.config/starship.toml
+    ~/.config/ghostty/config: dotfiles/.config/ghostty/config
     
     # Git configuration
     #~/.gitconfig: .config/git/gitconfig
@@ -43,15 +44,34 @@
     # Run custom installation scripts
     - [bash scripts/install/install.sh, Running custom installation]
     
-    # Set up shell
-    #- [bash install/shell.sh, Setting up shell]
-    
     # Install packages
     - [sudo apt-get update, Updating package lists]
     - [sudo apt-get install -y build-essential cmake git curl wget stow, Installing system packages]
     - [sudo apt-get install -y neovim tmux ripgrep fd-find git-extras, Installing development packages]
-    - [sudo apt-get install -y alacritty kitty zsh htop tree, Installing terminal packages]
-    #- [sudo apt-get install -y obsidian firefox vlc spotify-client, Installing optional packages]
+    - [sudo apt-get install -y zsh htop tree, Installing terminal packages]
+
+    # Install Flatpak and add Flathub repository
+    - [sudo apt install -y flatpak, Installing Flatpak]
+    - [flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo, Adding Flathub repository]
+    
+    # Install applications via Flatpak
+    - [flatpak install --user -y flathub com.spotify.Client, Installing Spotify]
+    - [flatpak install --user -y flathub md.obsidian.Obsidian, Installing Obsidian]
+    
+    # Install Starship prompt (user-local installation)
+    - [mkdir -p ~/.local/bin, Creating local bin directory]
+    - [command -v starship >/dev/null 2>&1 || curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin, Installing Starship prompt]
+    - [grep -q 'export PATH="$HOME/.local/bin:$PATH"' ~/.zshenv || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshenv, Adding local bin to PATH]
+    
+    # Install Ghostty using recommended Ubuntu installation script
+    - [command -v ghostty >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)", Installing Ghostty terminal]
+    # Install JetBrains Mono Nerd Font
+    - [mkdir -p ~/.local/share/fonts, Creating fonts directory]
+    - [test -f ~/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf || (curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip -o ~/.local/share/fonts/JetBrainsMono.zip && cd ~/.local/share/fonts && unzip -o JetBrainsMono.zip && rm JetBrainsMono.zip), Installing JetBrains Mono Nerd Font]
+    - [fc-cache -f -v, Updating font cache]
+    
+    # Set zsh as default shell (only if not already set)
+    - [test "$SHELL" = "$(which zsh)" || chsh -s $(which zsh), Setting zsh as default shell]
     
     # Set up development tools
     #- [bash install/tools.sh, Setting up development tools]
