@@ -81,6 +81,11 @@
           - docker-compose-plugin
         state: present
         update_cache: yes
+      register: docker_install
+      retries: 3
+      delay: 10
+      until: docker_install is success
+      ignore_errors: yes
 
     - name: Add Docker group
       ansible.builtin.group:
