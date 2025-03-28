@@ -47,7 +47,11 @@
     #- [bash install/shell.sh, Setting up shell]
     
     # Install packages
-    #- [bash install/packages.sh, Installing packages]
+    - [sudo apt-get update, Updating package lists]
+    - [sudo apt-get install -y build-essential cmake git curl wget stow, Installing system packages]
+    - [sudo apt-get install -y neovim tmux ripgrep fd-find git-extras, Installing development packages]
+    - [sudo apt-get install -y alacritty kitty zsh htop tree, Installing terminal packages]
+    #- [sudo apt-get install -y obsidian firefox vlc spotify-client, Installing optional packages]
     
     # Set up development tools
     #- [bash install/tools.sh, Setting up development tools]
