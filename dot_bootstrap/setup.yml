@@ -51,11 +51,23 @@
           - wl-clipboard
         state: present
 
+    - name: Download RTX install script
+      ansible.builtin.get_url:
+        url: https://rtx.pub/install.sh
+        dest: /tmp/rtx_install.sh
+        mode: '0755'
+      become: true
+
     - name: Install RTX
-      ansible.builtin.shell: |
-        curl https://rtx.pub/install.sh | bash
+      ansible.builtin.shell: /tmp/rtx_install.sh
       args:
         creates: /usr/local/bin/rtx
+      become: true
+
+    - name: Clean up RTX install script
+      ansible.builtin.file:
+        path: /tmp/rtx_install.sh
+        state: absent
       become: true
 
     - name: Change shell to zsh
@@ -102,12 +114,13 @@
 
     - name: Install Flatpak packages
       community.general.flatpak:
-        name:
-          - org.videolan.VLC
-          - md.obsidian.Obsidian
-          - org.gimp.GIMP
-          - org.sqlitebrowser.sqlitebrowser
+        name: "{{ item }}"
         state: present
+      loop:
+        - org.videolan.VLC
+        - md.obsidian.Obsidian
+        - org.gimp.GIMP
+        - org.sqlitebrowser.sqlitebrowser
 
     - name: Ensure fonts directory
       ansible.builtin.file:
