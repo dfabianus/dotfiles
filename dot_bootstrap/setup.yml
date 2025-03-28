@@ -51,6 +51,12 @@
           - wl-clipboard
         state: present
 
+    - name: Install rtx
+      shell: curl https://rtx.pub/install.sh | sh
+      args:
+        creates: /usr/local/bin/rtx
+      become: true
+
     - name: Change shell to zsh
       ansible.builtin.user:
         name: "{{ remote_regular_user }}"
@@ -95,12 +101,13 @@
 
     - name: Install Flatpak packages
       community.general.flatpak:
-        name:
-          - org.videolan.VLC
-          - md.obsidian.Obsidian
-          - org.gimp.GIMP
-          - org.sqlitebrowser.sqlitebrowser
+        name: "{{ item }}"
         state: present
+      loop:
+        - org.videolan.VLC
+        - md.obsidian.Obsidian
+        - org.gimp.GIMP
+        - org.sqlitebrowser.sqlitebrowser
 
     - name: Ensure fonts directory
       ansible.builtin.file:
