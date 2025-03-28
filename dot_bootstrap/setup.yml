@@ -98,12 +98,12 @@
         groups: docker
         append: true
 
-    - name: Install Flatpak packages
-      community.general.flatpak:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - org.gimp.GIMP
+    #- name: Install Flatpak packages
+    #  community.general.flatpak:
+     #   name: "{{ item }}"
+     #   state: present
+     # loop:
+     #   - org.gimp.GIMP
 
     - name: Ensure fonts directory
       ansible.builtin.file:
