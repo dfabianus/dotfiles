@@ -1,9 +1,15 @@
 # Main dotbot configuration file
 # This file orchestrates the entire installation process
 
-- clean:
-    - "~/.config"
-    - "~/.bashrc"
+- defaults:
+    link:
+      rel: true
+      force: true
+      create: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true 
 
 - link:
     # Shell configurations
@@ -47,14 +53,4 @@
     #- [bash install/tools.sh, Setting up development tools]
     
     # Configure desktop environment
-    #- [bash install/desktop.sh, Configuring desktop environment]
-
-- defaults:
-    link:
-      rel: true
-      force: true
-      create: true
-    shell:
-      stdin: true
-      stdout: true
-      stderr: true 
+    #- [bash install/desktop.sh, Configuring desktop environment] 
