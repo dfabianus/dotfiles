@@ -49,6 +49,7 @@
           - fd-find
           - fzf
           - wl-clipboard
+          - rtx
         state: present
 
     - name: Change shell to zsh
