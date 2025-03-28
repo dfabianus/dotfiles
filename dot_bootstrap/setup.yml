@@ -49,8 +49,14 @@
           - fd-find
           - fzf
           - wl-clipboard
-          - rtx
         state: present
+
+    - name: Install RTX
+      ansible.builtin.shell: |
+        curl https://rtx.pub/install.sh | bash
+      args:
+        creates: /usr/local/bin/rtx
+      become: true
 
     - name: Change shell to zsh
       ansible.builtin.user:
