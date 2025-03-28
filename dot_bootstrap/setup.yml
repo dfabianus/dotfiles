@@ -53,7 +53,7 @@
 
     - name: Add RTX GPG key
       apt_key:
-        url: https://rtx.pub/gpg-key.pub
+        url: https://rtx.pub/gpg
         state: present
 
     - name: Add RTX repository
