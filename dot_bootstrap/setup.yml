@@ -126,3 +126,29 @@
         remote_src: true
         mode: "0755"
         owner: "{{ remote_regular_user }}"
+
+    - name: Install i3wm and dependencies
+      apt:
+        name:
+          # Core i3 components
+          - i3
+          - i3blocks
+          - i3lock
+          - i3status
+          # Essential utilities
+          - rofi
+          - feh
+          - scrot
+          - arandr
+          - xbacklight
+          - xautolock
+          - dunst
+          - playerctl
+          - pavucontrol
+          # Network and system tools
+          - network-manager
+          - network-manager-gnome
+          - blueman
+          - light
+          - brightnessctl
+        state: present
