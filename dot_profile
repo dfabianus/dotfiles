@@ -4,5 +4,5 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 
 
 # Added by Toolbox App
-export PATH="$PATH:/home/ldonley/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/dona/.local/share/JetBrains/Toolbox/scripts"
 
