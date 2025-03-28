@@ -41,7 +41,7 @@
     - [git submodule update --init --recursive, Initializing submodules]
     
     # Run custom installation scripts
-    - [bash install/install.sh, Running custom installation]
+    - [bash scripts/install/install.sh, Running custom installation]
     
     # Set up shell
     #- [bash install/shell.sh, Setting up shell]
