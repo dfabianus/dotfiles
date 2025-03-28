@@ -98,10 +98,7 @@
         name: "{{ item }}"
         state: present
       loop:
-        - org.videolan.VLC
-        - md.obsidian.Obsidian
         - org.gimp.GIMP
-        - org.sqlitebrowser.sqlitebrowser
 
     - name: Ensure fonts directory
       ansible.builtin.file:
