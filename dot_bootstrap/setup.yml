@@ -56,6 +56,12 @@
         name: "{{ remote_regular_user }}"
         shell: /usr/bin/zsh
 
+    - name: Install zoxide
+      ansible.builtin.shell: curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+      args:
+        creates: /usr/local/bin/zoxide
+      become: true
+
     - name: Install VS Code
       apt:
         name: code
