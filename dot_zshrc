@@ -1,18 +1,22 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git)
+
+ZSH_THEME="kphoen"
+
+plugins=(
+    git 
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    )
+
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=cursor
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:$HOME/bin
+export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH="$HOME/.scripts/bin:$PATH"
-
-alias task=go-task
-alias v=nvim
-alias k=kubectl
-alias fly=flyctl
 
 # git
 alias gst="git status"
@@ -29,12 +33,12 @@ function gacp() {
     git push
 }
 
-# bun completions
-[ -s "/home/ldonley/.bun/_bun" ] && source "/home/ldonley/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+function gacpa() {
+    git add .
+    git commit -m "$1"
+    git push origin $(git symbolic-ref --short HEAD)
+    git push github $(git symbolic-ref --short HEAD)
+}
 
 # Initialize zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
