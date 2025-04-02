@@ -133,7 +133,7 @@ assign [class="[oO]bsidian"] → $ws4
 # Launch applications at startup with delays
 exec --no-startup-id firefox
 exec --no-startup-id sleep 1 && xfce4-terminal
-exec --no-startup-id sleep 2 && /home/dona/Downloads/Cursor-0.48.6-x86_64.AppImage --no-sandbox
+exec --no-startup-id sleep 2 && ~/Downloads/Cursor-0.48.6-x86_64.AppImage --no-sandbox
 exec --no-startup-id sleep 3 && obsidian
 
 
