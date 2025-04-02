@@ -59,11 +59,6 @@
         creates: /usr/local/bin/zoxide
       become: true
 
-    - name: Install VS Code
-      apt:
-        name: code
-        state: present
-
     - name: Add Docker GPG key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
