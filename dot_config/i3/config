@@ -126,14 +126,14 @@ set $ws10 "10"
 
 # Assign applications to workspaces
 assign [class="[fF]irefox"] → $ws1
-assign [class="[gG]hostty"] → $ws2
+assign [class="[xX]fce4-terminal"] → $ws2
 assign [class="[cC]ursor"] → $ws3
 assign [class="[oO]bsidian"] → $ws4
 
 # Launch applications at startup with delays
 exec --no-startup-id firefox
-exec --no-startup-id sleep 1 && ghostty
-exec --no-startup-id sleep 2 && /home/dona/Downloads/Cursor-0.47.9-x86_64.AppImage --no-sandbox
+exec --no-startup-id sleep 1 && xfce4-terminal
+exec --no-startup-id sleep 2 && /home/dona/Downloads/Cursor-0.48.6-x86_64.AppImage --no-sandbox
 exec --no-startup-id sleep 3 && obsidian
 
 
